@@ -102,7 +102,7 @@ void UEnemyFSM::AttackState()
 		// 경과 시간 초기화
 		currentTime = 0;
 	}
-
+	
 	// 목표: 타깃이 공격 범위를 벗어나면 상태를 이동으로 전환하고 싶다.
 	// 1. 타깃과의 거리가 필요하다.
 	float distance = FVector::Distance(target->GetActorLocation(), me->GetActorLocation());
