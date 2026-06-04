@@ -77,7 +77,6 @@ public:
 	// 체력
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category=FSM)
 	int32 hp = 3;
-
 	// 피격 대기 시간
 	UPROPERTY(EditAnywhere, Category=FSM)
 	float damageDelayTime = 2.0f;
@@ -85,4 +84,17 @@ public:
 	// 아래로 사라지는 속도
 	UPROPERTY(EditAnywhere, Category=FSM)
 	float dieSpeed = 50.0f;
+
+	// 사용 중인 애니메이션 블루프린트
+	UPROPERTY( )
+	class UEnemyAnim* anim;
+
+	// Enemy를 소유하고 있는 AIController
+	UPROPERTY()
+	class AAIController* ai;
+
+	// 길 찾기 수행시 랜덤 위치
+	FVector randomPos;
+	// 랜덤 위치 가져오기
+	bool GetRandomPositionInNavMesh(FVector centerLocation, float radius, FVector& dest);
 };
